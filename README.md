@@ -41,12 +41,25 @@ airflow users create \
 ```bash
 airflow users list
 ```
-![Anower in the user list] (assets/Screenshot 2025-02-08 at 13.07.52.png) 
+![Anower in the user list](assets/Screenshot 2025-02-08 at 13.07.52.png) 
 
 
 - Start Airflow web server and scheduler:
 ```bash
-airflow webserver -p 8080
+airflow webserver -p 8080 
 airflow scheduler
 ```
-Access the Airflow UI at `http://localhost:8080`
+
+- Start Airflow web server and scheduler in background process with log file:
+```bash
+nohup airflow webserver -p 8080 > airflow-webserver.log 2>&1 &
+nohup airflow scheduler > airflow-scheduler.log 2>&1 &
+```
+
+- Allow Remote Server's Firewall for port 8080
+```bash
+sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent
+sudo firewall-cmd --reload
+```
+
+- Open Browser and Access the Airflow UI at `http://161.97.ANO.WER:8080`
