@@ -63,3 +63,20 @@ sudo firewall-cmd --reload
 ```
 
 - Open Browser and Access the Airflow UI at `http://161.97.ANO.WER:8080`
+
+- Change the DAGs directory from `airflow.cnf` file
+
+```bash
+airflow config get-value core dags_folder
+```
+This will show the default dag directory. To change the default go to `airflow.cnf` and set `dag_folder` = /root/RND/anower/apache-airflow/anower_dags and save it. To apply changes restart the airflow services.
+
+- Restart Airflow web server and scheduler in background process with log file:
+```bash
+nohup airflow webserver -p 8080 > airflow-webserver.log 2>&1 &
+nohup airflow scheduler > airflow-scheduler.log 2>&1 &
+```
+
+
+
+
