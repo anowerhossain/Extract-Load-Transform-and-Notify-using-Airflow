@@ -41,6 +41,7 @@ airflow users create \
 ```bash
 airflow users list
 ```
+![Anower in the user list] (assets/Screenshot 2025-02-08 at 13.07.52.png) 
 
 
 - Start Airflow web server and scheduler:
